@@ -7,7 +7,7 @@ const About = () => {
   const [hasCopied, setHasCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(' adrian@jsmastery.pro');
+    navigator.clipboard.writeText('https://heylink.me/Ermax7');
     setHasCopied(true);
 
     setTimeout(() => {
@@ -23,9 +23,9 @@ const About = () => {
             <img src="assets/grid1.png" alt="grid-1" className="w-full sm:h-[276px] h-fit object-contain" />
 
             <div>
-              <p className="grid-headtext">Hi, I’m Adrian Hajdin</p>
+              <p className="grid-headtext">Hi, I’m Ermias Dejene</p>
               <p className="grid-subtext">
-                With 12 years of experience, I have honed my skills in both frontend and backend dev, creating dynamic
+                With more than 6 years of experience, I have honed my skills in both frontend and backend dev, creating dynamic
                 and responsive websites.
               </p>
             </div>
@@ -63,8 +63,10 @@ const About = () => {
             </div>
             <div>
               <p className="grid-headtext">I’m very flexible with time zone communications & locations</p>
-              <p className="grid-subtext">I&apos;m based in Rjieka, Croatia and open to remote work worldwide.</p>
-              <Button name="Contact Me" isBeam containerClass="w-full mt-10" />
+              <p className="grid-subtext">I&apos;m based in Addis Ababa, Ethiopia and open to remote work worldwide.</p>
+              <p className="grid-subtext">My representative - Michal - who&apos;s based in Switz can handle all requests on my behalf in multiple languages of your choice - English, Slavik, German,...</p>
+
+              <a href='https://heylink.me/Ermax7' target='_blank'><Button name="Check Michal" isBeam containerClass="w-full mt-10" /> </a>
             </div>
           </div>
         </div>
@@ -92,11 +94,20 @@ const About = () => {
             />
 
             <div className="space-y-2">
-              <p className="grid-subtext text-center">Contact me</p>
+              <p className="grid-subtext text-center">Contact me via link below </p>
+              <p className="grid-subtext text-center">( or Michal (in Switz) via link above. )</p>
+
               <div className="copy-container" onClick={handleCopy}>
                 <img src={hasCopied ? 'assets/tick.svg' : 'assets/copy.svg'} alt="copy" />
-                <p className="lg:text-2xl md:text-xl font-medium text-gray_gradient text-white">adrian@jsmastery.pro</p>
+                <p className="lg:text-2xl md:text-xl font-medium text-gray_gradient text-white"> <a href='heylink.me/Ermax7'> Copy Ermias&apos; Contact </a></p>
               </div>
+
+
+              {/* <div className="copy-container" onClick={handleCopy}>
+                <img src={hasCopied ? 'assets/tick.svg' : 'assets/copy.svg'} alt="copy" />
+                <p className="lg:text-2xl md:text-xl font-medium text-gray_gradient text-white">Michal&apos;s Contact</p>  
+              </div> */}
+
             </div>
           </div>
         </div>

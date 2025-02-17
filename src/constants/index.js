@@ -58,13 +58,13 @@ export const clientReviews = [
 
 export const myProjects = [
   {
-    title: 'Podcastr - AI Podcast Platform',
-    desc: 'Podcastr is a revolutionary Software-as-a-Service platform that transforms the way podcasts are created. With advanced AI-powered features like text-to-multiple-voices functionality, it allows creators to generate diverse voiceovers from a single text input.',
+    title: 'ErMax7 - AI WebML',
+    desc: 'ErMax7 - AI WebML is a revolutionary Software-as-a-Service platform that transforms the way podcasts are created. With advanced AI-powered features like text-to-multiple-voices functionality, it allows creators to generate diverse voiceovers from a single text input.',
     subdesc:
       'Built as a unique Software-as-a-Service app with Next.js 14, Tailwind CSS, TypeScript, Framer Motion and Convex, Podcastr is designed for optimal performance and scalability.',
-    href: 'https://www.youtube.com/watch?v=zfAb95tJvZQ',
-    texture: '/textures/project/project1.mp4',
-    logo: '/assets/project-logo1.png',
+    href: 'https://youtu.be/W4e_Hc8c8Hk?si=9IHJYsUj9s9jwtJR',
+    texture: '/textures/project/Ermax7.mp4',
+    logo: '/assets/Ermax7prevLogo.svg',
     logoStyle: {
       backgroundColor: '#2A1816',
       border: '0.2px solid #36201D',
@@ -79,27 +79,27 @@ export const myProjects = [
       },
       {
         id: 2,
-        name: 'TailwindCSS',
-        path: 'assets/tailwindcss.png',
+        name: 'html',
+        path: 'assets/html icon.png',
       },
       {
         id: 3,
-        name: 'TypeScript',
-        path: '/assets/typescript.png',
+        name: 'css',
+        path: '/assets/css icon.png',
       },
       {
         id: 4,
-        name: 'Framer Motion',
-        path: '/assets/framer.png',
+        name: 'Python',
+        path: '/assets/python-256x256.png',
       },
     ],
   },
   {
-    title: 'LiveDoc - Real-Time Google Docs Clone',
-    desc: 'LiveDoc is a powerful collaborative app that elevates the capabilities of real-time document editing. As an enhanced version of Google Docs, It supports millions of collaborators simultaneously, ensuring that every change is captured instantly and accurately.',
+    title: 'ECBC - A website for a local church',
+    desc: 'ECBC is a powerful collaborative app that elevates the capabilities of real-time document editing. As an enhanced version of Google Docs, It supports millions of collaborators simultaneously, ensuring that every change is captured instantly and accurately.',
     subdesc:
       'With LiveDoc, users can experience the future of collaboration, where multiple contributors work together in real time without any lag, by using Next.js and Liveblocks newest features.',
-    href: 'https://www.youtube.com/watch?v=y5vE8y_f_OM',
+    href: 'https://www.ecbc.et',
     texture: '/textures/project/project2.mp4',
     logo: '/assets/project-logo2.png',
     logoStyle: {
@@ -116,19 +116,19 @@ export const myProjects = [
       },
       {
         id: 2,
-        name: 'TailwindCSS',
-        path: 'assets/tailwindcss.png',
+        name: 'html',
+        path: 'assets/html icon.png',
       },
       {
         id: 3,
-        name: 'TypeScript',
-        path: '/assets/typescript.png',
+        name: 'css',
+        path: '/assets/css icon.png',
       },
-      {
-        id: 4,
-        name: 'Framer Motion',
-        path: '/assets/framer.png',
-      },
+      // {
+      //   id: 4,
+      //   name: 'Framer Motion',
+      //   path: '/assets/framer.png',
+      // },
     ],
   },
   {
@@ -260,20 +260,20 @@ export const calculateSizes = (isSmall, isMobile, isTablet) => {
 export const workExperiences = [
   {
     id: 1,
-    name: 'Framer',
+    name: 'Reactjs',
     pos: 'Lead Web Developer',
-    duration: '2022 - Present',
-    title: "Framer serves as my go-to tool for creating interactive prototypes. I use it to bring designs to  life, allowing stakeholders to experience the user flow and interactions before development.",
-    icon: '/assets/framer.svg',
+    duration: '2023 - Present',
+    title: "Very recently, I started being a full-stack developer to meet the market demands of multiple clients. And hence, I use nodejs as my backend, reactjs and vue js as well as threejs as demanded as a frontend development gears to bringing designs to life and thereby allowing stakeholders to seamlessly experience the smooth user flow and interactions while meeting their request.",
+    icon: '/assets/react.svg',
     animation: 'victory',
   },
   {
     id: 2,
-    name: 'Figma',
-    pos: 'Web Developer',
+    name: 'Python',
+    pos: 'AI Enthusiast',
     duration: '2020 - 2022',
-    title: "Figma is my collaborative design platform of choice. I utilize it to work seamlessly with team members and clients, facilitating real-time feedback and design iterations. Its cloud-based.",
-    icon: '/assets/figma.svg',
+    title: "As the basic concept behind learning, to my belief, is to use what you have learned to be handy in solving issues of life in your context and surrounding- I, being living in Ethiopia, an East African country where more than 85% of the dwellers rely on Agriculture in one way or the other, challenged myself what the modern technology and state-of-the-art of my Educational Discipline would yield; where I took a step in using Supervised Classification to study the Remote Sense temporal data of the Land use, temperature and Precipitation (Rainfall) of any given area in Ethiopia and suggest, as well as forecast, a given crop yield in the coming years.",
+    icon: '/assets/python-svgrepo-com.svg',
     animation: 'clapping',
   },
   {
