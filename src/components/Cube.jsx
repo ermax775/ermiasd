@@ -8,14 +8,14 @@ import { useRef, useState } from 'react';
 import { Float, useGLTF, useTexture } from '@react-three/drei';
 
 const Cube = ({ ...props }) => {
-  const { nodes } = useGLTF('models/cube.glb');
-
-  const texture = useTexture('textures/cube.png');
+  const { nodes } = useGLTF('/models/cube.glb');
+  const texture = useTexture('/textures/cube.png');
 
   const cubeRef = useRef();
   const [hovered, setHovered] = useState(false);
 
   useGSAP(() => {
+    if (!cubeRef.current) return;
     gsap
       .timeline({
         repeat: -1,
@@ -25,11 +25,9 @@ const Cube = ({ ...props }) => {
         y: hovered ? '+=2' : `+=${Math.PI * 2}`,
         x: hovered ? '+=2' : `-=${Math.PI * 2}`,
         duration: 2.5,
-        stagger: {
-          each: 0.15,
-        },
+        stagger: { each: 0.15 },
       });
-  });
+  }, [hovered]);
 
   return (
     <Float floatIntensity={2}>
@@ -48,6 +46,6 @@ const Cube = ({ ...props }) => {
   );
 };
 
-useGLTF.preload('models/cube.glb');
+useGLTF.preload('/models/cube.glb');
 
 export default Cube;

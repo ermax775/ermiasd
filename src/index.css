@@ -6,11 +6,18 @@
 
 * {
   scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 body {
   background: #010103;
   font-family: 'General Sans', sans-serif;
+  overflow-x: hidden;
+  min-width: 320px;
 }
 
 @layer utilities {
@@ -56,8 +63,12 @@ body {
   }
 
   /* hero section */
+  .hero-intro {
+    animation: heroFadeIn 0.8s ease-out forwards;
+  }
+
   .hero_tag {
-    @apply text-center xl:text-4xl md:text-3xl sm:text-4xl text-2xl font-generalsans font-black !leading-normal;
+    @apply text-center text-xl sm:text-2xl md:text-3xl xl:text-4xl font-generalsans font-black !leading-normal break-words px-1;
   }
 
   /* about section */
@@ -92,7 +103,7 @@ body {
   }
 
   .client-review {
-    @apply rounded-lg md:p-10 p-5 col-span-1 bg-black-300 bg-opacity-50;
+    @apply rounded-lg md:p-10 p-5 col-span-1 bg-black-300 bg-opacity-50 overflow-hidden break-words min-w-0;
   }
 
   .client-content {
@@ -105,7 +116,8 @@ body {
   }
 
   .work-canvas {
-    @apply col-span-1 rounded-lg bg-black-200 border border-black-300;
+    @apply col-span-1 rounded-lg bg-black-200 border border-black-300 min-h-[420px] lg:min-h-[480px];
+    box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.3);
   }
 
   .work-content {
@@ -113,7 +125,12 @@ body {
   }
 
   .work-content_container {
-    @apply grid grid-cols-[auto_1fr] items-start gap-5  transition-all ease-in-out duration-500 cursor-pointer hover:bg-black-300 rounded-lg sm:px-5 px-2.5;
+    @apply grid grid-cols-[auto_1fr] items-start gap-5 transition-all ease-in-out duration-300 cursor-pointer hover:bg-black-300 rounded-lg sm:px-5 px-2.5;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  }
+
+  .work-content_container:hover {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
   }
 
   .work-content_logo {
@@ -124,21 +141,40 @@ body {
     @apply flex-1 w-0.5 mt-4 h-full bg-black-300 group-hover:bg-black-500 group-last:hidden;
   }
 
-  /* contact section */
+  /* contact section – contain content within background frame on all screen sizes */
+  .contact-section {
+    @apply overflow-hidden;
+  }
+
+  .contact-frame {
+    @apply w-full;
+  }
+
   .contact-container {
-    @apply max-w-xl relative z-10 sm:px-10 px-5 mt-12;
+    @apply w-full max-w-xl relative z-10 sm:px-10 px-5 py-6 sm:py-8 mt-8 sm:mt-12 overflow-hidden;
+    max-width: min(36rem, 100%);
+  }
+
+  .contact-intro {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .field-label {
-    @apply text-lg text-white-600;
+    @apply text-base sm:text-lg text-white-600;
   }
 
   .field-input {
-    @apply w-full bg-black-300 px-5 py-2 min-h-14 rounded-lg placeholder:text-white-500 text-lg text-white-800 shadow-black-200 shadow-2xl focus:outline-none;
+    @apply w-full max-w-full bg-black-300 px-4 sm:px-5 py-2.5 sm:py-2 min-h-12 sm:min-h-14 rounded-lg placeholder:text-white-500 text-base sm:text-lg text-white-800 shadow-black-200 shadow-2xl focus:outline-none;
+    box-sizing: border-box;
+  }
+
+  .field-textarea {
+    @apply overflow-y-auto;
   }
 
   .field-btn {
-    @apply bg-black-500 px-5 py-2 min-h-12 rounded-lg shadow-black-200 shadow-2xl flex justify-center items-center text-lg text-white gap-3;
+    @apply bg-black-500 px-5 py-3 min-h-12 rounded-lg shadow-black-200 shadow-2xl flex justify-center items-center text-base sm:text-lg text-white gap-3 w-full sm:w-auto touch-manipulation;
   }
 
   .field-btn_arrow {
@@ -147,7 +183,23 @@ body {
 
   /*  footer */
   .social-icon {
-    @apply w-12 h-12 rounded-full flex justify-center items-center bg-black-300 border border-black-200;
+    @apply w-10 h-10 sm:w-12 sm:h-12 rounded-full flex justify-center items-center bg-black-300 border border-black-200 touch-manipulation;
+  }
+}
+
+/* Mobile-first: prevent overflow and improve touch targets */
+main {
+  overflow-x: hidden;
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .nav-li_a {
+    @apply text-base py-3;
+  }
+
+  .work-content_logo {
+    @apply w-14 h-14;
   }
 }
 
@@ -167,6 +219,17 @@ body {
     rgba(255, 255, 255, 0.000025) 50%,
     rgba(255, 255, 255, 0.025) 100%
   );
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes wave-animation {
@@ -193,5 +256,26 @@ body {
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+
+/* About section – animated CSS globe */
+.globe-container {
+  position: relative;
+}
+.globe-sphere {
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #2a4a6e, #0d1b2a 60%);
+  box-shadow: inset -20px -20px 40px rgba(0, 0, 0, 0.5), inset 10px 10px 20px rgba(100, 150, 200, 0.1);
+  animation: globe-rotate 20s linear infinite;
+}
+@keyframes globe-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

@@ -16,11 +16,13 @@ const WorkExperience = () => {
 
         <div className="work-container">
           <div className="work-canvas">
-            <Canvas>
-              <ambientLight intensity={7} />
-              <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-              <directionalLight position={[10, 10, 10]} intensity={1} />
-              <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} />
+            <Canvas gl={{ antialias: true }} shadows>
+              <ambientLight intensity={1.4} />
+              <hemisphereLight intensity={0.5} groundColor="#0d0d12" />
+              <spotLight position={[8, 12, 8]} angle={0.25} penumbra={1} intensity={1.5} castShadow />
+              <directionalLight position={[5, 8, 5]} intensity={1.2} />
+              <pointLight position={[-5, 5, 5]} intensity={0.5} color="#406080" />
+              <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} enableDamping dampingFactor={0.05} />
 
               <Suspense fallback={<CanvasLoader />}>
                 <Developer position-y={-3} scale={3} animationName={animationName} />

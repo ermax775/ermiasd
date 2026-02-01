@@ -9,10 +9,13 @@ import Rings from '../components/Rings.jsx';
 import ReactLogo from '../components/ReactLogo.jsx';
 import Button from '../components/Button.jsx';
 import Target from '../components/Target.jsx';
+import FallbackTarget from '../components/FallbackTarget.jsx';
 import CanvasLoader from '../components/Loading.jsx';
 import HeroCamera from '../components/HeroCamera.jsx';
 import { calculateSizes } from '../constants/index.js';
 import { HackerRoom } from '../components/HackerRoom.jsx';
+import { ErrorBoundary } from '../components/ErrorBoundary.jsx';
+import CanvasErrorFallback from '../components/CanvasErrorFallback.jsx';
 
 const Hero = () => {
   // Use media queries to determine screen size
@@ -24,7 +27,7 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen w-full flex flex-col relative" id="home">
-      <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3">
+      <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3 hero-intro">
         <p className="sm:text-3xl text-xl font-medium text-white text-center font-generalsans">
           Hi, I am Ermias <span className="waving-hand">👋</span>
         </p>
@@ -32,32 +35,43 @@ const Hero = () => {
       </div>
 
       <div className="w-full h-full absolute inset-0">
-        <Canvas className="w-full h-full">
-          <Suspense fallback={<CanvasLoader />}>
-            {/* To hide controller */}
-            <Leva hidden />
-            <PerspectiveCamera makeDefault position={[0, 0, 30]} />
+        <Canvas className="w-full h-full" gl={{ antialias: true }} shadows>
+          <ErrorBoundary fallback={CanvasErrorFallback}>
+            <Suspense fallback={<CanvasLoader />}>
+              <Leva hidden />
+              <PerspectiveCamera makeDefault position={[0, 0, 30]} />
 
-            <HeroCamera isMobile={isMobile}>
-              <HackerRoom scale={sizes.deskScale} position={sizes.deskPosition} rotation={[0.1, -Math.PI, 0]} />
-            </HeroCamera>
+              <HeroCamera isMobile={isMobile}>
+                <HackerRoom scale={sizes.deskScale} position={sizes.deskPosition} rotation={[0.1, -Math.PI, 0]} />
+              </HeroCamera>
 
-            <group>
-              <Target position={sizes.targetPosition} />
-              <ReactLogo position={sizes.reactLogoPosition} />
-              <Rings position={sizes.ringPosition} />
-              <Cube position={sizes.cubePosition} />
-            </group>
+              <group>
+                <ErrorBoundary fallback={() => <FallbackTarget position={sizes.targetPosition} />}>
+                  <Target position={sizes.targetPosition} />
+                </ErrorBoundary>
+                <ReactLogo position={sizes.reactLogoPosition} />
+                <Rings position={sizes.ringPosition} />
+                <Cube position={sizes.cubePosition} />
+              </group>
 
-            <ambientLight intensity={1} />
-            <directionalLight position={[10, 10, 10]} intensity={0.5} />
-          </Suspense>
+              <ambientLight intensity={1.2} />
+              <hemisphereLight intensity={0.6} groundColor="#0a0a0f" />
+              <directionalLight position={[10, 10, 10]} intensity={1.2} castShadow />
+              <pointLight position={[-10, 5, 5]} intensity={0.4} color="#6080a0" />
+            </Suspense>
+          </ErrorBoundary>
         </Canvas>
       </div>
 
       <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">
-        <a href="#about" className="w-fit">
-          <Button name="Let's work together" isBeam containerClass="sm:w-fit w-full sm:min-w-96" />
+        <a
+          href="https://heylink.me/Ermax7/"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="w-fit block"
+          aria-label="Connect via Heylink"
+        >
+          <Button name="Let's Connect" isBeam containerClass="sm:w-fit w-full sm:min-w-96" />
         </a>
       </div>
     </section>
