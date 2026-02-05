@@ -25,7 +25,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center py-5 mx-auto c-space">
           <a href="/" className="flex items-center text-neutral-400 hover:text-white transition-colors">
-            <img src="/assets/logo-calligraphic.jpg" alt="Ermias logo" className="h-8 w-auto" loading="lazy" />
+            <img src="/assets/logo-calligraphic3.png" alt="Ermias logo" className="h-16 w-auto -ml-2 -mt-3 rounded-full ring-4 ring-yellow-300 shadow-xl drop-shadow-[0_0_8px_rgba(255,255,200,0.9)]" loading="lazy" />
           </a>
 
           <button
