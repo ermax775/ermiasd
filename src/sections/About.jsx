@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Button from '../components/Button.jsx';
+import RepDialer from '../components/RepDialer.jsx';
 
 /** Animated CSS globe – no three-globe/WebGPU dependency */
 const AnimatedGlobe = ({ width = 326, height = 326 }) => (
@@ -10,7 +10,7 @@ const AnimatedGlobe = ({ width = 326, height = 326 }) => (
   >
     <div className="globe-sphere" />
     <div className="globe-label absolute bottom-2 left-0 right-0 text-center text-white/80 text-sm z-10">
-      Rijeka, Croatia · Remote worldwide
+      Addis Ababa, Ethiopia · Remote worldwide
     </div>
   </div>
 );
@@ -29,7 +29,7 @@ const About = () => {
       <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
         <div className="col-span-1 xl:row-span-3">
           <div className="grid-container">
-            <img src="/assets/grid1.png" alt="grid-1" className="w-full sm:h-[276px] h-fit object-contain" />
+            <img src="/assets/ermProfPic.png" alt="Ermias profile" className="w-full sm:h-[276px] h-fit object-cover rounded-2xl" />
             <div>
               <p className="grid-headtext">Hi, I&apos;m Ermias Dejene</p>
               <p className="grid-subtext">
@@ -61,10 +61,8 @@ const About = () => {
             <div>
               <p className="grid-headtext">I&apos;m very flexible with time zone communications & locations</p>
               <p className="grid-subtext">I&apos;m based in Addis Ababa, Ethiopia and open to remote work worldwide.</p>
-              <p className="grid-subtext">My representative - Michal - who&apos;s based in Switz can handle all requests on my behalf in multiple languages of your choice - English, Slavik, German,...</p>
-              <a href="https://heylink.me/Ermax7" target="_blank" rel="noreferrer">
-                <Button name="Check Michal" isBeam containerClass="w-full mt-10" />
-              </a>
+              <p className="grid-subtext">I am literally available in daytime, evening and/or night. Feel free to contact me at anytime in all social media platforms I have provided as my contact. At times when I needed more concentration or having rest and eventually don&apos;t answer calls right away, I will respond minutes later or have my solid representatives to count on -Seblewongel Belachew and Bethelhem Yibabe - who can readily handle all requests on my behalf in English and Amharic. They are just a phone call away. 🙏</p>
+              <RepDialer containerClass="w-full mt-10" />
             </div>
           </div>
         </div>
@@ -91,7 +89,7 @@ const About = () => {
             />
             <div className="space-y-2">
               <p className="grid-subtext text-center">Contact me via link below </p>
-              <p className="grid-subtext text-center">( or Michal (in Switz) via link above. )</p>
+              <p className="grid-subtext text-center">( or any of my representatives via call as pinned above. )</p>
               <div className="copy-container" onClick={handleCopy}>
                 <img src={hasCopied ? '/assets/tick.svg' : '/assets/copy.svg'} alt="copy" />
                 <p className="lg:text-2xl md:text-xl font-medium text-gray_gradient text-white">

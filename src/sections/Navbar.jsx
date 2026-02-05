@@ -24,8 +24,9 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/90">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center py-5 mx-auto c-space">
-          <a href="/" className="text-neutral-400 font-bold text-xl hover:text-white transition-colors">
-            Ermias
+          <a href="/" className="flex items-center text-neutral-400 hover:text-white transition-colors">
+            <img src="/assets/logo-calligraphic3.png" alt="Ermias logo" className="h-16 w-auto -ml-2 -mt-3 rounded-full ring-4 ring-yellow-300 shadow-xl drop-shadow-[0_0_8px_rgba(255,255,200,0.9)]" loading="lazy" />
+            <span className="ml-3 text-white font-semibold text-lg whitespace-nowrap">Ermias D.</span>
           </a>
 
           <button
